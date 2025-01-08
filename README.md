@@ -105,10 +105,6 @@ The models with prefix `catalog_` hold processed data to minimize computations. 
 The `basedata_` tables are well normalized to minimize redundancy. They are expected to grow slow. The `catalog_` tables might grow fast. The disc space consumed can be limited by deleting older data. The performance impact will be none since the tables are cached.
 
 
-## View `basedata_` tables
-
-The current implementation uses the class `QueryMaster` to retrieve a fully constructed (denormalized) table as a pandas.DataFrame. It could be embedded in a view that allows filtering of rows and columns (or whole models = multiple columns). 
-
 ## Ideas including more frontend interaction
 
 Optionally if the user requests a change of a record where the current data of an effected `DataModel` are referenced by other records he gets a corresponding note. He optionally gets a selection option to select for which additional super_keys the change is to be executed. For an instance a user requests a change of QH coefficients of a certain pump configuration X. The current active QH coefficients are also used by pump configuration Y and Z. Therefore the user gets a corresponding note and the option to also select changing QH coefficients of configuration Y and Z. Which the user might want if it is a general update and not a specification of a previously unspecified difference.
