@@ -1,5 +1,22 @@
 # Implementierung-einer-API-zur-effizienten-Interaktion-mit-komplexen-relationalen-Datenbanken
 
+#### Problemstellung:
+ 
+Die PLEUGER GmbH hat eine Webanwendung entwickelt, mit der Unterwassermotorpumpen für verschiedene Anwendungsfälle konfiguriert werden können. Dabei stehen unterschiedliche Komponenten wie Motoren, Pumpen, Leitungen und Rückschlagventile sowie deren spezifische Materialien und Charakteristiken zur Auswahl.
+ 
+Diese Auswahlmöglichkeiten und ihre Eigenschaften ändern sich regelmäßig. Derzeit müssen diese Änderungen von den Entwicklern der Webanwendung auf Anfrage der Sachverständigen manuell eingepflegt werden. Dieser Prozess ist zeitaufwendig, fehleranfällig und bindet wertvolle Ressourcen.
+ 
+#### Lösungsskizze:
+ 
+Im Rahmen dieser Bachelorarbeit wird eine zusätzliche Anwendung entwickelt. Diese soll es den zuständigen Sachverständigen ermöglichen, Änderungen eigenständig, effizient und direkt vorzunehmen. Die Anwendung soll folgende Anforderungen erfüllen:
+ 
+- **Webbasierte Bedienung**: Die Anwendung ist über den Browser zugänglich, um sie aktuell zu halten und den Aufwand für die Sachverständigen zu minimieren.
+- **Wiederherstellbarkeit**: Alle früheren Zustände der Datenbank können wiederhergestellt werden, um mögliche Fehler unkompliziert rückgängig machen zu können.
+- **Kostenoptimierte Datenstruktur**: Die Datenbank wird stark normalisiert, um Speicherplatz und damit Kosten zu reduzieren.
+- **Validierung von Änderungen**: Jede Änderung wird vor der Speicherung überprüft, um Fehler und Inkonsistenzen zu vermeiden.
+ 
+Im ersten Schritt wird der aktuelle Zustand der normalisierten Datenbank tabellarisch in einer übersichtlichen, denormalisierten Form dargestellt. Dadurch erhalten die Sachverständigen eine klare Übersicht und eine Grundlage für Änderungen.
+
 # Goal
 
 In production we need a logic to dynamically `view` and `update` the database. This should be highly generic to adapt to database structure changes and changing user demands. The update feature enables simple spreadsheet like updates of the table while in the background the changes are atomically passed to the respective tables, logged and updates of related tables are triggered. Ideally, it also enables an `undo` feature.
